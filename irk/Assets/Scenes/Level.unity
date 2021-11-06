@@ -725,6 +725,10 @@ MonoBehaviour:
   GoalObject: {fileID: 0}
   ForestSections:
   - {fileID: 2218699520830025018, guid: 8b4788ed7dffebd4586e1ad88de6f402, type: 3}
+  - {fileID: 3905679513956554656, guid: c0f3f4dbdaef08f43b750dcee7fb60cc, type: 3}
+  - {fileID: 2977393244327473879, guid: 94ee5c9f9f60aa4488b8ab6ef72bece8, type: 3}
+  - {fileID: 3396722971351964348, guid: b0af2765a495a124c81e1fa52bfd2fd4, type: 3}
+  - {fileID: 3147784341816448177, guid: fbc79a93253a85941b8de9576c785c1d, type: 3}
 --- !u!4 &1604211399
 Transform:
   m_ObjectHideFlags: 0

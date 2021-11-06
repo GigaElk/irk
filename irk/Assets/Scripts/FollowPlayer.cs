@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour
         float newX = player.position.x;
         float newY = player.position.y;
         if(newX < -0.5) newX = -0.5f;
-        if(newY < -0.5) newY = -0.5f;
+        if(newY < -0.5) newY = -1.5f;
         transform.position = new Vector3 (newX, newY, distance);
     }
 }

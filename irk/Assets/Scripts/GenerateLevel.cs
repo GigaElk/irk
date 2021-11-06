@@ -41,11 +41,33 @@ public class GenerateLevel : MonoBehaviour
     {
         if(ForestSections.Length == 0) return;
 
+        EDGEPOSITION previousTail = EDGEPOSITION.LOW;
         for(int partCounter = 0; partCounter < LevelLength; partCounter++)
         {
             Debug.Log("Processing part " + partCounter);
             Vector3 PartPos = new Vector3((sectionWidth * partCounter) - 10, -2.5f, 0);
-            Instantiate(ForestSections[Random.Range(0, ForestSections.Length)], PartPos, Quaternion.identity);
+
+            //Select a valid head section based on previous tail...
+            GameObject chosenSection = ForestSections[Random.Range(0, ForestSections.Length)];
+            if(partCounter > 0)
+            {
+                bool validMatch = false;
+                do
+                {
+                    //Keep checking until section is found with the same head as the previous tail
+                    if(chosenSection.GetComponent<TileMapController>().headPosition == previousTail)
+                    {
+                        //This is a good one...
+                        Debug.Log("Head and Tail match");
+                        validMatch = true;
+                    }
+                    else
+                        chosenSection = ForestSections[Random.Range(0, ForestSections.Length)];
+                } while(!validMatch);
+            }
+            
+            previousTail = chosenSection.GetComponent<TileMapController>().tailPosition;
+            Instantiate(chosenSection, PartPos, Quaternion.identity);
         }
         Debug.Log("DONE!");
     }
