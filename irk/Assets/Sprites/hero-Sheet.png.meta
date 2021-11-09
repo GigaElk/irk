@@ -111,6 +111,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -832,6 +833,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      hero-Sheet_13: 9007809729250083683
+      hero-Sheet_21: 4947280439230310175
+      hero-Sheet_28: -848740473686698613
+      hero-Sheet_7: -6378933179063124083
+      hero-Sheet_27: -2021486554577515712
+      hero-Sheet_24: 5618554314696520753
+      hero-Sheet_17: -2240671134501426884
+      hero-Sheet_19: -8960290153344555953
+      hero-Sheet_9: -3253583263421186072
+      hero-Sheet_0: -4214930763038054607
+      hero-Sheet_8: -598319725840349985
+      hero-Sheet_10: 7498572893729842873
+      hero-Sheet_4: -8396950063672931749
+      hero-Sheet_20: 6490576212322648294
+      hero-Sheet_15: 1824118512065975691
+      hero-Sheet_23: 8067521625949872553
+      hero-Sheet_25: -115240580946477674
+      hero-Sheet_12: 263044079382545967
+      hero-Sheet_14: 3002588602381386859
+      hero-Sheet_26: 3353655760286032107
+      hero-Sheet_3: -6947821048878206427
+      hero-Sheet_22: 4924109604013298226
+      hero-Sheet_6: 8117775448875749817
+      hero-Sheet_1: 5004251720596159698
+      hero-Sheet_16: 5068181428126672837
+      hero-Sheet_18: -3318045951458913132
+      hero-Sheet_11: 2468434035526599973
+      hero-Sheet_5: -1601515035750165270
+      hero-Sheet_2: 395556218820360323
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
