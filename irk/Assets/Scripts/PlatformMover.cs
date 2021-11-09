@@ -15,18 +15,27 @@ public class PlatformMover : MonoBehaviour
     public float maxPos = 10f;
     public float moveSpeed = 3f;
 
+    private float startX = 0;
+    private float startY = 0;
     private float currentX = 0;
     private float currentY = 0;
 
     void Start()
     {
+        startX = transform.position.x;
+        startY = transform.position.y;
         currentX = transform.position.x;
         currentY = transform.position.y;
+
         DOTween.Init(true, false);
         if(platformDirection == PLATFORMDIRECTION.VERTICAL)
+        {
             GoUp();
+        }
         else
+        {
             GoLeft();
+        }
     }
 
     private void GoUp()
@@ -47,7 +56,7 @@ public class PlatformMover : MonoBehaviour
 
     private void GoLeft()
     {
-        transform.DOMove(new Vector3(maxPos,currentY,0), 2)
+        transform.DOMove(new Vector3(maxPos + startX,currentY,0), 2)
             .SetEase(Ease.Linear)
             .SetLoops(1)
             .OnComplete(GoRight);
@@ -55,7 +64,7 @@ public class PlatformMover : MonoBehaviour
 
     private void GoRight()
     {
-        transform.DOMove(new Vector3(minPos,currentY,0), 2)
+        transform.DOMove(new Vector3(minPos + startX,currentY,0), 2)
             .SetEase(Ease.Linear)
             .SetLoops(1)
             .OnComplete(GoLeft);
