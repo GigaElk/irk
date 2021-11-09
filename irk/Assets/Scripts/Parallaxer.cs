@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Parallaxer : MonoBehaviour
+{
+    public Camera cam;
+    public Transform player;
+
+    private Vector2 startPosition;
+    private float startZ;
+
+    private Vector2 travel => (Vector2)cam.transform.position - startPosition;
+    private float distanceFromPlayer => transform.position.z - player.position.z;
+    private float clippingPlane => (cam.transform.position.z + (distanceFromPlayer > 0 ? cam.farClipPlane : cam.nearClipPlane));
+    private float parallaxFactor => Mathf.Abs(distanceFromPlayer) / clippingPlane;
+
+    public void Start()
+    {
+        startPosition = transform.position;
+        startZ = transform.position.z;
+    }
+
+    void Update()
+    {
+        Vector2 newPos = startPosition + travel * parallaxFactor;
+        transform.position = new Vector3(newPos.x, newPos.y, startZ);
+    }
+}
