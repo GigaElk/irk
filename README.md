@@ -10,18 +10,6 @@ Follows the theme in 3 ways:
 2. The code is full of bugs.
 3. Its a secret. More fun to find out by playing. (When its ready)
 
-## Free Assets
-
-The following free assets are included in the repository, though they are worth picking up for your own projects:
-
-------------------------------------------------
-
-qBasic: https://assetstore.unity.com/packages/tools/utilities/qasic-198122
-
-Various tools and timesavers for common tasks.
-
-------------------------------------------------
-
 ## Paid Assets
 
 All paid assets, or assets I cannot share, used in this project are untracked (sorry). So to get the code to run you will need to either buy the assets or prepare alternatives.
