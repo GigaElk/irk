@@ -46,28 +46,36 @@ public class GenerateLevel : MonoBehaviour
         {
             Debug.Log("Processing part " + partCounter);
             Vector3 PartPos = new Vector3((sectionWidth * partCounter) - 10, -2.5f, 0);
+            bool partIsGoal = false;
+            bool validMatch = false;
 
             //Select a valid head section based on previous tail...
             GameObject chosenSection = ForestSections[Random.Range(0, ForestSections.Length)];
-            if(partCounter > 0)
+
+            do
             {
-                bool validMatch = false;
-                do
+                if(partCounter == 0 && chosenSection.GetComponent<TileMapController>().canBeFirst)
+                    validMatch = true;
+                else if(chosenSection.GetComponent<TileMapController>().headPosition == previousTail)
                 {
                     //Keep checking until section is found with the same head as the previous tail
-                    if(chosenSection.GetComponent<TileMapController>().headPosition == previousTail)
+                    if(partCounter == LevelLength - 1 && chosenSection.GetComponent<TileMapController>().canBeFinal)
                     {
-                        //This is a good one...
-                        Debug.Log("Head and Tail match");
                         validMatch = true;
+                        partIsGoal = true;
                     }
                     else
-                        chosenSection = ForestSections[Random.Range(0, ForestSections.Length)];
-                } while(!validMatch);
-            }
+                        validMatch = true;
+                }
+                else
+                    chosenSection = ForestSections[Random.Range(0, ForestSections.Length)];
+            } while(!validMatch);
             
             previousTail = chosenSection.GetComponent<TileMapController>().tailPosition;
-            Instantiate(chosenSection, PartPos, Quaternion.identity);
+            GameObject newBit = Instantiate(chosenSection, PartPos, Quaternion.identity);
+            //Set the object...
+            //newBit.GetComponent<TileMapController>().isGoal = partIsGoal;
+            newBit.GetComponent<TileMapController>().SetGoal(partIsGoal);
         }
         Debug.Log("DONE!");
     }

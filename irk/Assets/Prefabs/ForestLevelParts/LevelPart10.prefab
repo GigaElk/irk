@@ -50,6 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headPosition: 2
   tailPosition: 2
+  canBeFirst: 0
+  canBeFinal: 0
+  isGoal: 0
+  goalObject: {fileID: 0}
 --- !u!61 &3758394986269196826
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,13 +12,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        hMovement = Input.GetAxisRaw("Horizontal") * speed;
-
-        animator.SetFloat("Speed", hMovement);
-
-        if(Input.GetButtonDown("Jump"))
+        if(gameObject.transform.position.y < -10)
         {
-            isJumping = true;
+            Debug.Log("Player Died!");
+            Respawn();
+        }
+        else
+        {
+            hMovement = Input.GetAxisRaw("Horizontal") * speed;
+            animator.SetFloat("Speed", hMovement);
+            if(Input.GetButtonDown("Jump"))
+            {
+                isJumping = true;
+            }
         }
     }
 
@@ -28,5 +32,12 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.Move(hMovement * Time.fixedDeltaTime, false, isJumping);
         isJumping = false;
+    }
+
+    void Respawn()
+    {
+        Debug.Log("Respawning");
+        //TODO: Remove 1 life
+        gameObject.transform.position = new Vector3(0, 0, 0);
     }
 }
