@@ -1009,6 +1009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headPosition: 0
   tailPosition: 2
+  canBeFirst: 0
+  canBeFinal: 1
   isGoal: 0
   goalObject: {fileID: 1543346749697679581}
 --- !u!61 &605896131433060545

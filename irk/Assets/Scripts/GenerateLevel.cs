@@ -54,8 +54,10 @@ public class GenerateLevel : MonoBehaviour
 
             do
             {
-                if(partCounter == 0 && chosenSection.GetComponent<TileMapController>().canBeFirst)
-                    validMatch = true;
+                if(partCounter == 0)
+                {
+                    validMatch = chosenSection.GetComponent<TileMapController>().canBeFirst;
+                }
                 else if(chosenSection.GetComponent<TileMapController>().headPosition == previousTail)
                 {
                     //Keep checking until section is found with the same head as the previous tail
